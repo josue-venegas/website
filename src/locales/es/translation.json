@@ -44,17 +44,17 @@
   "Contact Title": "Contacto",
   "Contact Description": "Si desea ponerse en contacto conmigo, complete el siguiente formulario.",
 
-  "Name Title" : "Nombre",
-  "Name Description": "Su nombre",
-  "Email Title" : "Email",
-  "Email Description": "Su correo electrónico",
-  "Message Title" : "Mensaje",
-  "Message Description": "Su mensaje",
+  "name title" : "Nombre",
+  "name": "Su nombre",
+  "email title" : "Email",
+  "email": "Su correo electrónico",
+  "message title" : "Mensaje",
+  "message": "Su mensaje",
   "Submit": "Enviar",
   "Loading Title": "Cargando",
   "Loading Description": "Se está procesando su solicitud",
   "Error Title": "Error",
   "Error Description": "Lamentamos las molestias. Intente comunicarse directamente a josuevenegasalmonacid@gmail.com",
   "Success Title": "¡Correo enviado!",
-  "Success Description": "Gracias por contactarme. Responderé a la brevedad posible."
+  "Success Description": "Gracias por contactarme. Le responderé a la brevedad posible."
 }

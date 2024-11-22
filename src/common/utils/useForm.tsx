@@ -11,7 +11,7 @@ interface Email{
 
 export const useForm = (validate: any) => {
   const [values, setValues] = useState({} as Email);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({} as Email);
   const [shouldSubmit, setShouldSubmit] = useState(false);
 
   const { t } = useTranslation();
@@ -44,17 +44,17 @@ export const useForm = (validate: any) => {
     event.preventDefault();
     setErrors(validate(values));
 
-    if (Object.keys(values).length === 3) {
+    if (Object.keys(validate(values)).length === 0) {
       openNotificationWithIconLoading();
-      console.log("Sending email with values: ", values);
       emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID || "", process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "",{
         from_name: values.name,
         from_email: values.email,
         message: values.message,
         }, process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "")
       .then((result) => {
-          openNotificationWithIconSuccess();
+          console.log(result.text);
           setShouldSubmit(true);
+          openNotificationWithIconSuccess();
       }, (error) => {
           console.log(error.text);
           openNotificationWithIconError();
@@ -64,7 +64,7 @@ export const useForm = (validate: any) => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && shouldSubmit) {
-      setValues({} as Email);
+      setValues({name: "", email: "", message: ""} as Email);
     }
   }, [errors, shouldSubmit]);
 
